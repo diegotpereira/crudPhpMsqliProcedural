@@ -13,14 +13,14 @@
 
                include "conexao.php";
 
-               if (isset($_POST('submit'))) {
+               if (isset($_POST['submit'])) {
                    # code...
                    $nome    = $_POST['nome'];
-                   $marcas  = $_POST['marcas'];
-                   $departamento = $_POST['departamento'];
+                   $notas  = $_POST['notas'];
+                   $curso = $_POST['curso'];
                    $resultado = $_POST['resultado'];
 
-                   $Query = mysqli_query($con, "INSERT INTO estudantes (nome, marcas, departamento, resultado) VALUES ('$nome', '$marcas', '$departamento', '$resultado')");
+                   $Query = mysqli_query($con, "INSERT INTO estudantes (nome, notas, curso, resultado) VALUES ('$nome', '$notas', '$curso', '$resultado')");
 
                    if ($Query) {
                        # code...
@@ -53,11 +53,11 @@
                                    </div>
 
                                    <div class="form-group">
-                                      <input type="text" name="marcas" class="form-control" placeholder="Digite uma marca..." required="">
+                                      <input type="text" name="notas" class="form-control" placeholder="Digite uma nota..." required="">
                                    </div>
 
                                    <div class="form-group">
-                                      <input type="text" name="departamento" class="form-control" placeholder="Digite um departamento..." required="">
+                                      <input type="text" name="curso" class="form-control" placeholder="Digite seu curso..." required="">
                                    </div>
 
                                    <div class="form-group">
@@ -81,8 +81,8 @@
                   <thead>
                       <tr>
                          <th>Nome</th>
-                         <th>Marcas</th>
-                         <th>Departamento</th>
+                         <th>Notas</th>
+                         <th>Curso</th>
                          <th>Resultado</th>
                          <th>Alterar</th>
                          <th>Deletar</th>
@@ -95,8 +95,8 @@
                         while ($r = mysqli_fetch_array($Show)): ?>
                              <tr>
                                 <td><?php echo $r ['nome']; ?></td>
-                                <td><?php echo $r['marcas'];?></td>
-                                <td><?php echo $r['departamento'];?></td>
+                                <td><?php echo $r['notas'];?></td>
+                                <td><?php echo $r['curso'];?></td>
                                 <td><?php echo $r['resultado'];?></td>
 
                                 <td><a href="atualizar.php?alterar_id=<?php echo $r['id']; ?>" class="btn btn-warning">Atualizar</a></td>
